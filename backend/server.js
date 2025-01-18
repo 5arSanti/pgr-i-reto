@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { sql } = require("./database");
+const { routerApi } = require("./routes");
 
 const app = express();
 
@@ -11,6 +12,8 @@ const options = {
 
 app.use(express.json())
 app.use(cors(options))
+
+routerApi(app);
 
 app.get("/", (request, response) => {
     return response.send("Hola desde el servidor backend del reto")

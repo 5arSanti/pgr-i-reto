@@ -90,7 +90,7 @@ router.delete("/:id", (request, response) => {
     }
 })
 
-router.patch("/", (request, response) => {
+router.put("/", (request, response) => {
     try {
         const { id, ID_Estado_Tarea } = request.body;
 

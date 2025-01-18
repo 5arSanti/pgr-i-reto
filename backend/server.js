@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const { sql } = require("./database");
 
 const app = express();
 
@@ -14,3 +15,5 @@ app.use(cors(options))
 app.get("/", (request, response) => {
     return response.send("Hola desde el servidor backend del reto")
 })
+
+module.exports = app;

@@ -1,4 +1,5 @@
 import { AppProvider } from "../../Context";
+import { Header } from "../Components/Header";
 
 import "./App.css"
 
@@ -6,9 +7,7 @@ const App = () => {
 
     return (
         <AppProvider>
-			<div>
-				<h1>App</h1>
-			</div>
+			<Header/>
 		</AppProvider>
     );
 }

@@ -7,11 +7,9 @@ const AppProvider = ({ children }) => {
 
 
 	return (
-		<AppContext.Provider
-			value={{
+		<AppContext.Provider value={{
 
-			}}
-		>
+		}}>
 			{children}
 		</AppContext.Provider>
 	);

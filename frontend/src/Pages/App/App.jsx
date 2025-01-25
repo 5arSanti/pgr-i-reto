@@ -1,5 +1,6 @@
 import { AppProvider } from "../../Context";
 import { Header } from "../Components/Header";
+import { NewTaskForm } from "../Components/NewTaskForm";
 import { TasksContainer } from "../Components/TasksContainer";
 import { TitleButtonContainer } from "../Components/TitleButtonContainer";
 
@@ -27,6 +28,8 @@ const App = () => {
 					type={"done"}
 				/>
 			</div>
+
+			<NewTaskForm/>
 		</AppProvider>
     );
 }

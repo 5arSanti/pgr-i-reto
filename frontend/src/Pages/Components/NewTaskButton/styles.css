@@ -11,6 +11,7 @@
 	gap: 10px;
 
 	background-color: var(--pallete-5);
+	cursor: pointer;
 
 	span {
 		font-size: 20px;

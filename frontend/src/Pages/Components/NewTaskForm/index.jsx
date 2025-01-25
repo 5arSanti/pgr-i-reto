@@ -9,6 +9,11 @@ import "./styles.css"
 const NewTaskForm = () => {
 	const { createTaskModal, setCreateTaskModal } = React.useContext(AppContext);
 
+	const [values, setValues] = React.useState({
+		Titulo: "",
+		Descripcion: "",
+	})
+
 	if (!createTaskModal) return <></>;
 
 	return (
@@ -25,10 +30,14 @@ const NewTaskForm = () => {
 				<input
 					className="new-task-input"
 					placeholder="Titulo de la tarea"
+					onChange={(event) => setValues({ ...values, Titulo: event.target.value })}
+					value={values.Titulo}
 				/>
 				<input
 					className="new-task-input"
 					placeholder="Descripcion de la tarea"
+					onChange={(event) => setValues({ ...values, Descripcion: event.target.value })}
+					value={values.Descripcion}
 				/>
 				<button
 					className="new-task-button"

@@ -16,15 +16,15 @@ const App = () => {
 			<div className="tasks-container-wrapper">
 				<TasksContainer
 					subtitle={"Tareas Pendientes"}
-					className={"to-do"}
+					type={"to-do"}
 				/>
 				<TasksContainer
 					subtitle={"Tareas en Proceso"}
-					className={"process"}
+					type={"process"}
 				/>
 				<TasksContainer
 					subtitle={"Tareas Completadas"}
-					className={"done"}
+					type={"done"}
 				/>
 			</div>
 		</AppProvider>

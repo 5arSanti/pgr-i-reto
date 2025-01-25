@@ -15,6 +15,9 @@
 
 	--done-1: #E1C8FF;
 	--done-2: #BF87FF;
+
+	--delete: #FFC8C9;
+	--close: #FFC8C9;
 }
 
 .tasks-container-wrapper {

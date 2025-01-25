@@ -4,9 +4,9 @@ const { sql } = require("../../database");
 const router = express.Router();
 
 router.get("/", (request, response) => {
-    try {
-        const query = `
-            SELECT 
+	try {
+		const query = `
+            SELECT
                 t.ID_Tarea AS id,
                 t.Titulo,
                 t.Descripcion,
@@ -19,105 +19,105 @@ router.get("/", (request, response) => {
 
         `;
 
-        sql.query(query, (err, result) => {
-            if (err) { return response.status(500).json({ Status: "Error", message: err.message }) }
+		sql.query(query, (err, result) => {
+			if (err) { return response.status(500).json({ Status: "Error", message: err.message }) }
 
-            return response.status(200).json({ Status: "Success", tasks: result.recordset })
-        }) 
-    } 
-    catch (error) {
-        return response.status(500).json({ Status: "Error", message: error.message })
-    }
+			return response.status(200).json({ Status: "Success", tasks: result.recordset })
+		})
+	}
+	catch (error) {
+		return response.status(500).json({ Status: "Error", message: error.message })
+	}
 });
 
 router.post("/", (request, response) => {
-    try {
-        const { Titulo, Descripcion } = request.body;
+	try {
+		const { Titulo, Descripcion } = request.body;
 
-        if (!Titulo || !Descripcion) { 
-            return response.status(400).json({ Status: "Error", message: "Faltan datos" }) 
-        }
+		if (!Titulo || !Descripcion) {
+			return response.status(400).json({ Status: "Error", message: "Faltan datos" })
+		}
 
-        if (Titulo === "") { 
-            return response.status(400).json({ Status: "Error", message: "El titulo no puede estar vacio" }) 
-        }
+		if (Titulo === "") {
+			return response.status(400).json({ Status: "Error", message: "El titulo no puede estar vacio" })
+		}
 
-        const query = `
+		const query = `
             INSERT INTO Tareas (
                 Titulo,
                 Descripcion,
                 ID_Estado_Tarea
-            ) 
+            )
             VALUES (
-                '${Titulo}', 
-                '${Descripcion}', 
+                '${Titulo}',
+                '${Descripcion}',
                 1
             )
         `;
 
-        sql.query(query, (err, result) => {
-            if (err) { return response.status(500).json({ Status: "Error", message: err.message }) }
+		sql.query(query, (err, result) => {
+			if (err) { return response.status(500).json({ Status: "Error", message: err.message }) }
 
-            return response.status(200).json({ Status: "Success", message: "Tarea creada correctamente" })
-        }) 
-    } 
-    catch (error) {
-        console.log(error)
-        return response.status(500).json({ Status: "Error", message: error.message })
-    }
+			return response.status(200).json({ Status: "Success", message: "Tarea creada correctamente" })
+		})
+	}
+	catch (error) {
+		console.log(error)
+		return response.status(500).json({ Status: "Error", message: error.message })
+	}
 })
 
 router.delete("/:id", (request, response) => {
-    try {
-        const { id } = request.params;
+	try {
+		const { id } = request.params;
 
-        if (!id) { 
-            return response.status(400).json({ Status: "Error", message: "El ID de la tarea no fue proporcionado." }) 
-        }
+		if (!id) {
+			return response.status(400).json({ Status: "Error", message: "El ID de la tarea no fue proporcionado." })
+		}
 
-        const query = `
+		const query = `
             DELETE FROM Tareas WHERE ID_Tarea = ${id}
         `;
 
-        sql.query(query, (err, result) => {
-            if (err) { return response.status(500).json({ Status: "Error", message: err.message }) }
+		sql.query(query, (err, result) => {
+			if (err) { return response.status(500).json({ Status: "Error", message: err.message }) }
 
-            return response.status(200).json({ Status: "Success", message: "Tarea eliminada correctamente" })
-        }) 
-    } 
-    catch (error) {
-        return response.status(500).json({ Status: "Error", message: error.message })
-    }
+			return response.status(200).json({ Status: "Success", message: "Tarea eliminada correctamente" })
+		})
+	}
+	catch (error) {
+		return response.status(500).json({ Status: "Error", message: error.message })
+	}
 })
 
 router.put("/", (request, response) => {
-    try {
-        const { id, ID_Estado_Tarea } = request.body;
+	try {
+		const { id, ID_Estado_Tarea } = request.body;
 
-        if (!id) { 
-            return response.status(400).json({ Status: "Error", message: "El ID de la tarea no fue proporcionado." }) 
-        }
+		if (!id) {
+			return response.status(400).json({ Status: "Error", message: "El ID de la tarea no fue proporcionado." })
+		}
 
-        if (!ID_Estado_Tarea) {
-            return response.status(400).json({ Status: "Error", message: "El ID del estado de la tarea no fue proporcionado." }) 
-        }
+		if (!ID_Estado_Tarea) {
+			return response.status(400).json({ Status: "Error", message: "El ID del estado de la tarea no fue proporcionado." })
+		}
 
-        const query = `
+		const query = `
             UPDATE Tareas
-            SET 
+            SET
                 ID_Estado_Tarea = ${ID_Estado_Tarea}
             WHERE ID_Tarea = ${id}
         `;
 
-        sql.query(query, (err, result) => {
-            if (err) { return response.status(500).json({ Status: "Error", message: err.message }) }
+		sql.query(query, (err, result) => {
+			if (err) { return response.status(500).json({ Status: "Error", message: err.message }) }
 
-            return response.status(200).json({ Status: "Success", message: "Tarea actualizada correctamente" })
-        }) 
-    } 
-    catch (error) {
-        return response.status(500).json({ Status: "Error", message: error.message })
-    }
+			return response.status(200).json({ Status: "Success", message: "Tarea actualizada correctamente" })
+		})
+	}
+	catch (error) {
+		return response.status(500).json({ Status: "Error", message: error.message })
+	}
 })
 
 module.exports = router;

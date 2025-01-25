@@ -6,7 +6,8 @@ name: Build and deploy Node.js app to Azure Web App - ttdo-backend
 on:
   push:
     branches:
-      - s34, main
+      - s34
+      - main
   workflow_dispatch:
 
 jobs:

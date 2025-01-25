@@ -4,6 +4,10 @@ const postData = async (endpoint, values) => {
 	try {
 		const response = await fetch(`${api}/${endpoint}`, {
 			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+                'Accept': 'application/json',
+			},
 			body: JSON.stringify(values),
 		 })
 
@@ -17,6 +21,7 @@ const postData = async (endpoint, values) => {
 	}
 	catch (err) {
 		alert(err.message)
+		return null;
 	}
 }
 

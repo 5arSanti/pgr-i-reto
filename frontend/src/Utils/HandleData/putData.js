@@ -4,6 +4,10 @@ const putData = async (endpoint, values) => {
 	try {
 		const response = await fetch(`${api}/${endpoint}`, {
 			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+                'Accept': 'application/json',
+			},
 			body: JSON.stringify(values),
 		 })
 

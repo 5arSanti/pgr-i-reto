@@ -5,6 +5,7 @@ import { Title } from "../Title";
 import { IoMdCloseCircle } from "react-icons/io";
 
 import "./styles.css"
+import { postData } from "../../../Utils/HandleData/postDATA";
 
 const NewTaskForm = () => {
 	const { createTaskModal, setCreateTaskModal } = React.useContext(AppContext);
@@ -14,11 +15,22 @@ const NewTaskForm = () => {
 		Descripcion: "",
 	})
 
+	const onSubmit = async (event) => {
+		event.preventDefault();
+
+		const data = await postData("tasks", values);
+
+		if (!data) return alert("Error al crear la tarea");
+
+		alert(data.message);
+		window.location.reload();
+	}
+
 	if (!createTaskModal) return <></>;
 
 	return (
 		<div className="new-task-form-wrapper">
-			<form className="new-task-form">
+			<form className="new-task-form" onSubmit={onSubmit}>
 				<Title>
 					Informacion de la Tarea
 				</Title>

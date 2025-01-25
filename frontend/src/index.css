@@ -4,3 +4,8 @@ body {
 	font-family: 'Roboto', sans-serif;
 	background-color: var(--pallete-3);
 }
+
+p {
+	margin: 0;
+	padding: 0;
+}

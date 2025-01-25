@@ -1,0 +1,36 @@
+.main-tasks-container {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	align-items: center;
+	justify-content: center;
+
+	.task-subtitle {
+		font-size: 12px;
+		font-weight: bold;
+	}
+	.tasks-wrapper {
+		box-sizing: border-box;
+
+		width: 100%;
+
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		padding: 20px;
+
+		border-radius: 20px;
+	}
+}
+
+.to-do {
+	background-color: var(--to-do-1);
+}
+.process {
+	background-color: var(--process-1);
+}
+.done {
+	background-color: var(--done-1);
+}

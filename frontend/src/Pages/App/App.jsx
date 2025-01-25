@@ -1,5 +1,6 @@
 import { AppProvider } from "../../Context";
 import { Header } from "../Components/Header";
+import { TasksContainer } from "../Components/TasksContainer";
 import { TitleButtonContainer } from "../Components/TitleButtonContainer";
 
 import "./App.css"
@@ -11,6 +12,21 @@ const App = () => {
 			<Header/>
 
 			<TitleButtonContainer/>
+
+			<div className="tasks-container-wrapper">
+				<TasksContainer
+					subtitle={"Tareas Pendientes"}
+					className={"to-do"}
+				/>
+				<TasksContainer
+					subtitle={"Tareas en Proceso"}
+					className={"process"}
+				/>
+				<TasksContainer
+					subtitle={"Tareas Completadas"}
+					className={"done"}
+				/>
+			</div>
 		</AppProvider>
     );
 }

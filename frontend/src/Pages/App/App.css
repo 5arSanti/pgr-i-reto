@@ -11,9 +11,10 @@
 	--to-do-2: #A8FFF9;
 
 	--process-1: #FBFFC8;
-	--process-2: #F9FFA8;
+	--process-2: #f6f9b6;
 
 	--done-1: #E1C8FF;
+	--done-2: #BF87FF;
 }
 
 .tasks-container-wrapper {

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import React from "react";
 import { getData } from "../Utils/HandleData/getData";
@@ -7,20 +8,25 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
 	const [createTaskModal, setCreateTaskModal] = React.useState(false);
 
-	React.useEffect(() => {
-		const handleGetData = async () => {
-			const data = await getData("tasks");
-			console.log(data)
-		}
+	const [responseData, setResponseData] = React.useState([]);
 
+	const handleGetData = async () => {
+		const { tasks } = await getData("tasks");
+		setResponseData({tasks, ...responseData });
+	}
+
+	React.useEffect(() => {
 		handleGetData()
-	}, [])
+	}, []);
 
 
 	return (
 		<AppContext.Provider value={{
 			createTaskModal,
-			setCreateTaskModal
+			setCreateTaskModal,
+
+			responseData,
+			setResponseData
 		}}>
 			{children}
 		</AppContext.Provider>

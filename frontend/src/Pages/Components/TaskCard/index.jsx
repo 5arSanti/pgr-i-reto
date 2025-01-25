@@ -12,7 +12,7 @@ const TaskCard = ({ task, type }) => {
 	return (
 		<div className={`task-card-container ${type}`}>
 			<div className="task-info">
-				<p>{task?.Nombre}</p>
+				<p>{task?.Titulo}</p>
 				<p>{task?.Descripcion}</p>
 			</div>
 

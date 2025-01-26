@@ -1,0 +1,76 @@
+.task-card-container {
+	display: grid;
+	grid-template-columns: 1.75fr 0.25fr;
+
+	background-color: #FAFBFF !important;
+
+	padding: 25px 30px;
+	border-radius: 10px;
+
+	position: relative;
+
+	.task-info {
+		width: 100%;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 5px;
+
+		p:nth-child(1) {
+			font-weight: bold;
+			font-size: 16px;
+		}
+	}
+	.task-card-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 10px;
+
+		background-color: transparent !important;
+		cursor: pointer;
+	}
+	.to-do-button {
+		border: 3px solid var(--to-do-2);
+	}
+	.process-button {
+		border: 3px solid var(--process-2);
+	}
+	.done-button {
+		border: 3px solid var(--done-2);
+	}
+}
+.to-do {
+	border-left: 6px solid var(--to-do-2);
+}
+.process {
+	border-left: 6px solid var(--process-2);
+}
+.done {
+	border-left: 6px solid var(--done-2);
+}
+
+.actions-modal {
+	width: 175px;
+	box-sizing: border-box;
+
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	background-color: #FAFBFF;
+	border-radius: 20px;
+	padding: 15px;
+
+	position: absolute;
+	right: 30px;
+	bottom: 0;
+	transform: translateY(90%);
+
+	z-index: 1;
+
+	box-shadow: 11px 10px 13px -2px rgba(0,0,0,0.17);
+	-webkit-box-shadow: 11px 10px 13px -2px rgba(0,0,0,0.17);
+	-moz-box-shadow: 11px 10px 13px -2px rgba(0,0,0,0.17);
+}

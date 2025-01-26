@@ -1,0 +1,30 @@
+.action-button {
+	box-sizing: border-box;
+
+	width: 100%;
+
+	font-size: 12px;
+
+	padding: 7%;
+	border-radius: 10px;
+	border: none;
+
+	cursor: pointer;
+}
+
+.to-do-action {
+	background-color: var(--to-do-1);
+}
+.process-action {
+	background-color: var(--process-1);
+}
+.done-action {
+	background-color: var(--done-1);
+}
+.delete-action {
+	background-color: var(--delete);
+}
+.close-action {
+	background-color: transparent;
+	border: 1px solid var(--close);
+}

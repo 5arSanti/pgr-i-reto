@@ -12,14 +12,13 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
+
 concurrency:
   group: 'pages'
   cancel-in-progress: true
 
 jobs:
     front-deploy:
-        # needs: back-deploy
         environment:
           name: github-pages
           url: ${{ steps.deployment.outputs.page_url }}
@@ -32,15 +31,12 @@ jobs:
           - name: Set up Node
             uses: actions/setup-node@v4
             with:
-              cache-dependency-path: frontend/package-lock.json
+              cache-dependency-path: frontend/package-lock.json # Valide el nombre de su frontend
               node-version: '20.x'
               cache: 'npm'
 
-          - name: Verify lock file
-            run: ls -la ./frontend
-
           - name: Build
-            working-directory: ./frontend
+            working-directory: ./frontend # Valide el nombre de su frontend
             env:
               VITE_API_DOMAIN: ${{ vars.VITE_API_DOMAIN }}
             run: |
@@ -54,8 +50,7 @@ jobs:
             uses: actions/upload-pages-artifact@v3
 
             with:
-              # Upload dist repository
-              path: './frontend/dist'
+              path: './frontend/dist' # Valide el nombre de su frontend
 
           - name: Deploy to GitHub Pages
             id: deployment
